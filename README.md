@@ -2,7 +2,7 @@
 
 - [Application Demo]()
 
-The "Travel Recommendation App" project aims to develop a travel recommendation system with Google Places API and OpenAI LLM that returns a list of recommended location based on users input. 
+The "Travel Recommendation App" project aims to develop a travel recommendation system using Google Places API and OpenAI LLM that returns a list of recommended location based on users input. 
 
 ---
 
