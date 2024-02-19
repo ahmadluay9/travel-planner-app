@@ -10,16 +10,8 @@ The "Travel Recommendation App" project aims to develop a travel recommendation 
 This repository consists of several files :
 
 ```
-    ├── backend/
-    │   ├── app.py
-    │   ├── bq-results-20240205-004748-1707094090486.csv
-    │   ├── chatbot.py
-    │   ├── dockerfile
-    │   ├── requirements.txt
-    ├── frontend/
-    │   ├── app.py
-    │   ├── dockerfile
-    │   ├── requirements.txt
+    ┌── app.py
+    ├── requirements.txt
     ├── .gitignore
     └── README.md
 ```
