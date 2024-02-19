@@ -1,1 +1,38 @@
-# travel-planner-app
+# Travel Recommendation Application using Google Places API and OpenAI LLM
+
+- [Application Demo]()
+
+The "Travel Recommendation App" project aims to develop a travel recommendation system that returns a list of recommended location based on users preferences. 
+
+---
+
+## File Explanation
+This repository consists of several files :
+
+```
+    ├── backend/
+    │   ├── app.py
+    │   ├── bq-results-20240205-004748-1707094090486.csv
+    │   ├── chatbot.py
+    │   ├── dockerfile
+    │   ├── requirements.txt
+    ├── frontend/
+    │   ├── app.py
+    │   ├── dockerfile
+    │   ├── requirements.txt
+    ├── .gitignore
+    └── README.md
+```
+- `app.py`: This file is the main script for the frontend of the application and is developed using the Streamlit framework.
+
+- `requirements.txt`: This file lists the Python dependencies required for frontend application. These dependencies can be installed using a package manager like pip.
+
+- `README.md`: This is a Markdown file that typically contains documentation for the project. It include information on how to set up and run your application, dependencies, and any other relevant details.
+
+---
+
+## Application
+
+### How to use
+
+Users can use this application by entering the desired location on the widget. The application features a chatbot that users can converse with to receive suggestions.
