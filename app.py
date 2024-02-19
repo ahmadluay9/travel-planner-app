@@ -188,7 +188,7 @@ def main():
                     for index,row in df_place.iterrows():
                         location = [row['location.latitude'], row['location.longitude']]
                         mymap  = folium.Map(location = initial_location, 
-                                zoom_start=13, control_scale=True)
+                                zoom_start=9, control_scale=True)
                         content = (str(row['displayName.text']) + '<br>' + 
                                 'Rating: '+ str(row['rating']) + '<br>' + 
                                 'Address: ' + str(row['formattedAddress']) + '<br>' + 
@@ -217,7 +217,7 @@ def main():
                     for index,row in df_place.iterrows():
                         location = [row['location.latitude'], row['location.longitude']]
                         mymap  = folium.Map(location = initial_location, 
-                                zoom_start=13, control_scale=True)
+                                zoom_start=9, control_scale=True)
                         content = (str(row['displayName.text']) + '<br>' + 
                                 'Rating: '+ str(row['rating']) + '<br>' + 
                                 'Address: ' + str(row['formattedAddress']) + '<br>' + 
@@ -245,7 +245,7 @@ def main():
                     for index,row in df_place.iterrows():
                         location = [row['location.latitude'], row['location.longitude']]
                         mymap  = folium.Map(location = initial_location, 
-                                zoom_start=13, control_scale=True)
+                                zoom_start=9, control_scale=True)
                         content = (str(row['displayName.text']) + '<br>' + 
                                 'Rating: '+ str(row['rating']) + '<br>' + 
                                 'Address: ' + str(row['formattedAddress']) + '<br>' + 
@@ -291,27 +291,6 @@ def main():
             # Prompt
             query: str = st.chat_input("Enter a prompt here")
 
-            # headers = {
-            #         'Content-Type': 'application/json',
-            #         'X-Goog-Api-Key': api_key,
-            #         'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.priceLevel,places.userRatingCount,places.rating,places.websiteUri,places.location,places.googleMapsUri',
-            #     }
-                    
-            # data = {
-            #     'textQuery': query
-            #     }
-            
-            # # Convert data to JSON format
-            # json_data = json.dumps(data)
-            # # Make the POST request
-            # response = requests.post(url, data=json_data, headers=headers)
-            # # Print the response
-            # result = response.json()
-            # # Convert JSON data to DataFrame
-            # df = pd.json_normalize(result['places'])
-            # # Sort the dataframe by 'userRatingCount' and 'rating' in descending order
-            # df = df.sort_values(by=['userRatingCount', 'rating'], ascending=[False, False]).reset_index(drop=True)
-            
             # Combine info
             df_place['combined_info'] = df_place.apply(lambda row: f"Type: {row['type']}, Name: {row['displayName.text']}. Rating: {row['rating']}. Address: {row['formattedAddress']}. Website: {row['websiteUri']}", axis=1)
             # Load Processed Dataset
@@ -346,6 +325,7 @@ def main():
             Your job is to assist users in locating a location. 
             From the following context and chat history, assist customers in finding what they are looking for based on their input. 
             Provide three recommendations, along with the address, phone number, website.
+            Sort recommendations based on rating and number of user ratings. 
             
             {context}
 
@@ -389,10 +369,11 @@ def main():
             chatbot()
         else:
             database()
-        st.sidebar.markdown(''' 
-                    ## Created by: 
-                    Ahmad Luay Adnani - [GitHub](https://github.com/ahmadluay9) 
-                    ''')
+
+    st.sidebar.markdown(''' 
+        ## Created by: 
+        Ahmad Luay Adnani - [GitHub](https://github.com/ahmadluay9) 
+        ''')
 
         
 if __name__ == '__main__':

@@ -3,7 +3,6 @@ streamlit==1.29.0
 requests==2.31.0
 pandas==2.1.4
 streamlit-folium==0.18.0
-plotly==5.19.0
 pydantic==2.5.3
 langchain==0.0.353
 tiktoken==0.5.2
