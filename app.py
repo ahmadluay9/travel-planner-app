@@ -23,17 +23,21 @@ from langchain.prompts import PromptTemplate
 load_dotenv()
 
 # Retrieve the API key from the environment variable
-api_key = os.getenv('API_KEY')
-openai_api_key = os.getenv("MY_OPENAI_KEY")
+# api_key = os.getenv('API_KEY')
+# openai_api_key = os.getenv("MY_OPENAI_KEY")
 url = 'https://places.googleapis.com/v1/places:searchText'
 
-if not api_key:
-    raise ValueError("API_KEY not found in environment variables. Please set it in the .env file.")
-if not openai_api_key:
-    raise ValueError("MY_OPENAI_KEY not found in environment variables. Please set it in the .env file.")
+# if not api_key:
+#     raise ValueError("API_KEY not found in environment variables. Please set it in the .env file.")
+# if not openai_api_key:
+#     raise ValueError("MY_OPENAI_KEY not found in environment variables. Please set it in the .env file.")
 
 def main():
     st.sidebar.title("Travel Recommendation App Demo")
+
+    api_key = st.sidebar.text_input("Enter Google Maps API key:",type="password")
+    openai_api_key = st.sidebar.text_input("Enter OpenAI API key:",type="password")
+
     st.sidebar.write('Please fill in the fields below.')
     destination = st.sidebar.text_input('Destination:',key='destination_app')
     min_rating = st.sidebar.number_input('Minimum Rating:',value=4.0,min_value=0.5,max_value=4.5,step=0.5,key='minrating_app')
